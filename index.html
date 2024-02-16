@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Bootstrap</title>
+  <!-- Incluindo o CSS do Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .celula {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div>
+    <h1>Teste</h1>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="jumbotron">
+    <div class="row" id="grid-container"></div>
+  </div>
+</div>
+
+<!-- Incluindo o JavaScript do Bootstrap (opcional, mas necessário para alguns componentes do Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  // Função para criar a grade de células com botões
+  function criarGrid() {
+    // Seletor do elemento onde a grade será criada
+    var gridContainer = document.getElementById("grid-container");
+
+    // Loop para criar as 15 linhas
+    for (var i = 0; i < 15; i++) {
+      // Criando uma nova linha
+      var row = document.createElement("div");
+      row.classList.add("row");
+
+      // Loop para criar as 12 colunas
+      for (var j = 0; j < 12; j++) {
+        // Criando uma nova célula
+        var cell = document.createElement("div");
+        cell.classList.add("col", "celula");
+
+        // Criando um botão dentro da célula
+        var button = document.createElement("button");
+        button.type = "button";
+        button.classList.add("btn", "btn-primary");
+        button.textContent = "Botão";
+
+        // Adicionando o botão à célula
+        cell.appendChild(button);
+
+        // Adicionando a célula à linha
+        row.appendChild(cell);
+      }
+
+      // Adicionando a linha ao contêiner da grade
+      gridContainer.appendChild(row);
+    }
+  }
+
+  // Chamando a função para criar a grade quando a página carregar
+  window.onload = criarGrid;
+</script>
+</body>
+</html>
